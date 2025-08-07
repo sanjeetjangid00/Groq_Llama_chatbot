@@ -1,6 +1,3 @@
-
-llm = ChatGroq(model="llama-3.3-70b-versatile")
-
 import time
 import streamlit as st
 from langchain_groq import ChatGroq
@@ -108,4 +105,5 @@ elif not st.session_state["chat_history"]:
         f'{"Hello! How can I help you today?"}</div>',
         unsafe_allow_html=True
     )
+
 
