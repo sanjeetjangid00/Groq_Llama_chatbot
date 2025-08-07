@@ -23,7 +23,7 @@ if chat_input:
 
 # Message Display Section
 for message in st.session_state.messages:
-    with st.chat_message("user"):
+    if message['role'] == 'user":
         # Display user message on the right with human logo
         st.markdown(
             f'<div style="display: flex; justify-content: flex-end; margin: 10px 0;">'
@@ -32,7 +32,7 @@ for message in st.session_state.messages:
             f'{message["message"]}</div></div>',
             unsafe_allow_html=True
         )
-    with st.chat_message('assistant'):
+    else:
         # Display AI response on the left with AI logo
         st.markdown(
             f'<div style="text-align: left; background-color: #E0F7FA; border-radius: 15px; padding: 10px; max-width: 110%; margin: 10px 0; display: inline-block;">'
@@ -40,5 +40,6 @@ for message in st.session_state.messages:
             f'{message["message"]}</div>',
             unsafe_allow_html=True
         )
+
 
 
