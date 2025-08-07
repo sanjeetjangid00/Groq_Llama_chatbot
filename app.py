@@ -14,8 +14,7 @@ class ChatbotState(TypedDict):
     message : Annotated[list[BaseMessage], add_messages]
 
 def chatbot_llm(state:ChatbotState):
-    prompt = f"Generate the response for - {state['message']}"
-    response = llm.invoke(prompt).content
+    response = llm.invoke(state['message).content
     return {"message":[response]}
 
 graph = StateGraph(ChatbotState)
@@ -80,4 +79,5 @@ if user_input:
     )       
 
         
+
 
