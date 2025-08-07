@@ -13,7 +13,6 @@ st.markdown(
     f'<p style="text-align: center; font-size: 36px; font-weight: bold; color: #1A73E8;">{"GROQ Llama Chatbot"}</p>',
     unsafe_allow_html=True
 )
-
 # Input Section
 chat_input = st.chat_input("Ask me anything...")
 
@@ -24,7 +23,7 @@ if chat_input:
 
 # Message Display Section
 for message in st.session_state.messages:
-    if message["role"] == "user":
+    with st.chat_message("user"):
         # Display user message on the right with human logo
         st.markdown(
             f'<div style="display: flex; justify-content: flex-end; margin: 10px 0;">'
@@ -41,3 +40,4 @@ for message in st.session_state.messages:
             f'{message["message"]}</div>',
             unsafe_allow_html=True
         )
+
