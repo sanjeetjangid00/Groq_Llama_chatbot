@@ -7,7 +7,7 @@ from langgraph.checkpoint.memory import MemorySaver
 from langgraph.graph import START, StateGraph, MessagesState
 
 # Title
-st.write('<h1 style="text-align: center; color: blue;">AI Chatbot</h1>', unsafe_allow_html=True)
+st.write('<h1 style="text-align: center; color: blue;">Ask Something</h1>', unsafe_allow_html=True)
 
 # Load secrets
 GROQ_API_KEY = st.secrets["GROQ_API_KEY"]
@@ -105,5 +105,6 @@ elif not st.session_state["chat_history"]:
         f'{"Hello! How can I help you today?"}</div>',
         unsafe_allow_html=True
     )
+
 
 
