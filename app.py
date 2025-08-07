@@ -23,7 +23,7 @@ if chat_input:
 
 # Message Display Section
 for message in st.session_state.messages:
-    if message['role'] == 'user":
+    if message['role'] == "user":
         # Display user message on the right with human logo
         st.markdown(
             f'<div style="display: flex; justify-content: flex-end; margin: 10px 0;">'
@@ -40,6 +40,7 @@ for message in st.session_state.messages:
             f'{message["message"]}</div>',
             unsafe_allow_html=True
         )
+
 
 
 
