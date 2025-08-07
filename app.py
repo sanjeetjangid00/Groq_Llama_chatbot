@@ -1,7 +1,7 @@
 from langgraph.graph import StateGraph, START, END
 from typing import TypedDict, Annotated
 from langgraph.checkpoint.memory import InMemorySaver
-from langchain_core.messages import HumanMessage, BaseMessage, SystemMessage
+from langchain_core.messages import HumanMessage, BaseMessage, AIMessage
 from langgraph.graph.message import add_messages
 from langchain_groq import ChatGroq
 import streamlit as st
@@ -15,7 +15,7 @@ class ChatbotState(TypedDict):
 
 def chatbot_llm(state:ChatbotState):
     response = llm.invoke(state['message'])
-    return {"message":[response]}
+    return {"message":[AIMessage(content=response.content)]}
 
 graph = StateGraph(ChatbotState)
 graph.add_node("chatbot_llm", chatbot_llm)
@@ -79,6 +79,7 @@ if user_input:
     )       
 
         
+
 
 
 
