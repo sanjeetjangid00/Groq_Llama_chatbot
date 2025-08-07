@@ -32,7 +32,7 @@ for message in st.session_state.messages:
             f'{message["message"]}</div></div>',
             unsafe_allow_html=True
         )
-    else:
+    with st.chat_message('assistant'):
         # Display AI response on the left with AI logo
         st.markdown(
             f'<div style="text-align: left; background-color: #E0F7FA; border-radius: 15px; padding: 10px; max-width: 110%; margin: 10px 0; display: inline-block;">'
@@ -40,4 +40,5 @@ for message in st.session_state.messages:
             f'{message["message"]}</div>',
             unsafe_allow_html=True
         )
+
 
