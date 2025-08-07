@@ -37,7 +37,7 @@ st.markdown(
     unsafe_allow_html=True
 )
 # Input Section
-chat_input = st.chat_input("Ask me anything...")
+user_input = st.chat_input("Ask me anything...")
 
 for message in st.session_state['messages']:
         if message['role'] == 'user':
@@ -80,3 +80,4 @@ if user_input:
     )       
 
         
+
