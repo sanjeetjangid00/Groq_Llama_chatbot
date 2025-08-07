@@ -71,7 +71,7 @@ if user_input:
 
 
     config = {"configurable": {'thread_id':1}}
-    response = chatbot.invoke({'message': [HumanMessage(content = chat_history)]}, config = config)
+    response = chatbot.invoke({'message': chat_history}, config = config)
     ai_message = response['message'][-1].content
     st.session_state['messages'].append({'role':'assistant', "content":ai_message})
     st.markdown(
@@ -82,6 +82,7 @@ if user_input:
     )       
 
         
+
 
 
 
