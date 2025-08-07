@@ -39,23 +39,24 @@ st.markdown(
 user_input = st.chat_input("Ask me anything...")
 chat_history = []
 for message in st.session_state['messages']:
-        if message['role'] == 'user':
-            st.markdown(
-            f'<div style="display: flex; justify-content: flex-end; margin: 10px 0;">'
-            f'<div style="background-color: #D3E4FF; border-radius: 15px; padding: 10px; max-width: 110%; display: flex; align-items: center;">'
-            f'<img src="https://img.icons8.com/ios/452/user-male-circle.png" style="vertical-align: middle; width: 25px; height: 25px; margin-right: 10px;" />'
-            f'{message["content"]}</div></div>',
-            unsafe_allow_html=True
-        )
-            chat_history.append(HumanMessage(content = message['content']))
-        else:
-            chat_history.append(AIMessage(content = message['content']))
-            st.markdown(
-            f'<div style="text-align: left; background-color: #E0F7FA; border-radius: 15px; padding: 10px; max-width: 110%; margin: 10px 0; display: inline-block;">'
-            f'<img src="https://img.icons8.com/ios/452/artificial-intelligence.png" style="vertical-align: middle; width: 25px; height: 25px; margin-right: 10px;" />'
-            f'{message["content"]}</div>',
-            unsafe_allow_html=True)
-            
+
+    if message['role'] == 'user':
+        st.markdown(
+        f'<div style="display: flex; justify-content: flex-end; margin: 10px 0;">'
+        f'<div style="background-color: #D3E4FF; border-radius: 15px; padding: 10px; max-width: 110%; display: flex; align-items: center;">'
+        f'<img src="https://img.icons8.com/ios/452/user-male-circle.png" style="vertical-align: middle; width: 25px; height: 25px; margin-right: 10px;" />'
+        f'{message["content"]}</div></div>',
+        unsafe_allow_html=True
+    )
+        chat_history.append(HumanMessage(content = message['content']))
+    else:
+        chat_history.append(AIMessage(content = message['content']))
+        st.markdown(
+        f'<div style="text-align: left; background-color: #E0F7FA; border-radius: 15px; padding: 10px; max-width: 110%; margin: 10px 0; display: inline-block;">'
+        f'<img src="https://img.icons8.com/ios/452/artificial-intelligence.png" style="vertical-align: middle; width: 25px; height: 25px; margin-right: 10px;" />'
+        f'{message["content"]}</div>',
+        unsafe_allow_html=True)
+        
              
 if user_input:
     st.session_state['messages'].append({'role':'user', "content":user_input})
@@ -81,6 +82,7 @@ if user_input:
     )       
 
         
+
 
 
 
